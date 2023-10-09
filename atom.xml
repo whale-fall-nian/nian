@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://https://whale-fall-nian.github.io/nian/</id>
+    <title>Gridea</title>
+    <updated>2023-10-09T07:36:57.441Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://https://whale-fall-nian.github.io/nian/"/>
+    <link rel="self" href="https://https://whale-fall-nian.github.io/nian/atom.xml"/>
+    <subtitle>温故而知新</subtitle>
+    <logo>https://https://whale-fall-nian.github.io/nian/images/avatar.png</logo>
+    <icon>https://https://whale-fall-nian.github.io/nian/favicon.ico</icon>
+    <rights>All rights reserved 2023, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[MySQL必知必会总结]]></title>
+        <id>https://https://whale-fall-nian.github.io/nian/post/mysql-bi-zhi-bi-hui-zong-jie/</id>
+        <link href="https://https://whale-fall-nian.github.io/nian/post/mysql-bi-zhi-bi-hui-zong-jie/">
+        </link>
+        <updated>2023-10-08T00:33:18.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="1基础知识以及简单命令">1.基础知识以及简单命令</h1>
+<p>主键可以是一列也可以是多列</p>
+<p>使用数据库<br>
+<code>use database;</code></p>
+<p>显示所有的数据库<br>
+<code>show databases;</code></p>
+<p>显示所有的数据库表（需要先选择数据库）<br>
+<code>show tables;</code></p>
+<p>show也可以用来显示列<br>
+<code>show columns from table_name;</code><br>
+也可以使用<code>describe table_name;</code>来替代<code>show columns from table_name;</code></p>
+<p>显示广泛的服务器状态信息<br>
+<code>show status</code></p>
+<p><code>show create database 和 show create database table</code>   用来显示创建特定数据库或表的MySQL语句</p>
+<p><code>show errors 和 show show warnings</code>  用来显示服务器错误或警告信息</p>
+<h1 id="2检索数据">2.检索数据</h1>
+<p>检索表格中的单个列<br>
+<code>select row_name</code><br>
+<code>from table_name;</code><br>
+注：sql语句是不区分大小写的，但为了阅读方便SQL的关键字尽量使用大写，这样方便阅读以及调试。mysql4.1.1及以前的版本中这些标识符默认是区分大小写的</p>
+<p>检索多个列<br>
+<code>select row_name,row_name,row_name</code><br>
+<code>from tanle_name;</code></p>
+<p>检索所有列<br>
+<code>select *</code><br>
+<code>from table_name;</code><br>
+使用了通配符 * ，则返表中所有的列。检索不要的列通常会降低检索和程序的性能。<br>
+如果不熟悉表中的列，可以使用通配符 * 来检索查看未知的列</p>
+<p>检索不同的行可以使用 distinct 来起到去重的作用，将重复的行去掉<br>
+<code>select distinct row_name</code><br>
+<code>from table_name;</code><br>
+DISTINCT指令用于返回唯一不同的值，并且它是针对整个结果集的。因此，无法部分使用DISTINCT指令。</p>
+<p>限制结果--limit<br>
+<code>selct row_name</code><br>
+<code>from table_name</code><br>
+<code>limit 5;</code><br>
+limit 5指示MySQL的返回不多于5行</p>
+<p><code>selct row_name</code><br>
+<code>from table_name</code><br>
+<code>limit 5,5;</code><br>
+limit 5,5指MySQL返回从行5开始的5行。第一个数为开始位置，第二个数为要检索的行数</p>
+<p>检测出来的第一行为行0而不是行1，因此，limit 1，1 将检索出第二行而不是第一行</p>
+<p>在行数不够时，limit中指定要检索的行数为检索的做大行数。如果没有足够的行，MySQL将返回它能返回的最大行。</p>
+<p>MySQL5支持limit的另外一种代替语法<br>
+limit 4 offset 3  3意为从行3开始取4行，就像limit 3 ,4一样</p>
+<p>使用完全限定表名<br>
+例如：database_name.table_name 或者 table_name.row_name</p>
+<h1 id="3排序检索数据">3.排序检索数据</h1>
+<p>排序数据--order by<br>
+<code>select row_name</code><br>
+<code>from table_name</code><br>
+<code>order by row_name;</code><br>
+order by字句中使用的列将是为显示所选择的列，排序的顺序默认为升序排序</p>
+<p>按多个列排序<br>
+<code>select row_name,row_name,row_name</code><br>
+<code>from table_name</code><br>
+<code>order by row_name,row_name;</code></p>
+<p>指定排序方向<br>
+<code>select row_name</code><br>
+<code>from table_name</code><br>
+<code>order by row_name desc;</code><br>
+desc是将此排序指定为降序排序</p>
+<p>可以对其中某个列进行排序<br>
+<code>select row_name</code><br>
+<code>from table_name</code><br>
+<code>order by row_name desc , row_name;</code></p>
+<p>于desc相反的关键字是asc（升序排列）<br>
+在字典排序中，A被视为于a相同，这是MySQL的默认行为</p>
+<p>注：在给出order by子句时，应该确保它位于from之后，如果使用了limit，它必须位于order by之后。就是limit必须放在order by之后</p>
+<h1 id="4过滤数据">4.过滤数据</h1>
+<p>使用where子句<br>
+<code>select row_name,row_name</code><br>
+<code>from table_name</code><br>
+<code>where row_name = 某个条件;</code></p>
+<p>where子句的位置，如果使用order by和where子句时，应该让order by位于where子句之后<br>
+&lt;&gt;  不等一符号<br>
+between 在指定的两个值之间</p>
+<p>MySQL在执行默认匹配时是不区分大小写的</p>
+<p>检索条件1和条件2之间的东西<br>
+<code>select row_name,row_name</code><br>
+<code>from table_name</code><br>
+<code>where row_name between 条件1 and 条件2;</code></p>
+<p>空值检车----使用 is null<br>
+<code>select row_name</code><br>
+<code>from table_name</code><br>
+<code>where row_name is null;</code><br>
+将会把空的值全部检索出来</p>
+<h1 id="5数据过滤">5.数据过滤</h1>
+<p>AND（and）操作符<br>
+<code>select row_name,row_name,row_name</code><br>
+<code>from table_name</code><br>
+<code>where row_name = 条件1 and row_name = 条件2;</code><br>
+and需要满足条件1和条件2的数据才会被检索出来，还可以添加and增加更多的条件</p>
+<p>OR（or）操作符<br>
+<code>select row_name,row_name,row_name</code><br>
+<code>from table_name</code><br>
+<code>where row_name = 条件1 or row_name = 条件2;</code><br>
+满足其中一个条件的就会被检索出来，也可以跟and一样，经过增加and的数量增加筛选条件</p>
+<p>计算次序<br>
+sql在处理or操作符前，优先处理and操作符，可以通过使用圆括号的方式来改变优先级</p>
+<p>IN（in）操作符----用来指定条件范围，范围中的每个条件都可以进行匹配<br>
+<code>select row_name,row_name</code><br>
+<code>from table_name</code><br>
+<code>where row_name in (条件1,条件2)</code><br>
+<code>order by row_name;</code><br>
+in操作符一般比or操作符清单执行的更快</p>
+<p>NOT（not）操作符<br>
+where子句中not操作符有且只有一个功能，那就是否定它之后所跟的任何条件。<br>
+<code>select row_name,row_name</code><br>
+<code>from table_name</code><br>
+<code>where row_name not in (条件1,条件2)</code><br>
+<code>order by row_name;</code><br>
+这里否定了符合条件1  条件2的内容，将会输出条件1 条件2之外的数据</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Hello Gridea]]></title>
+        <id>https://https://whale-fall-nian.github.io/nian/post/hello-gridea/</id>
+        <link href="https://https://whale-fall-nian.github.io/nian/post/hello-gridea/">
+        </link>
+        <updated>2018-12-11T16:00:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+<!-- more -->
+<p><a href="https://github.com/getgridea/gridea">Github</a><br>
+<a href="https://gridea.dev/">Gridea 主页</a><br>
+<a href="http://fehey.com/">示例网站</a></p>
+<h2 id="特性">特性👇</h2>
+<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
+<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
+<p>🏷️  你可以对文章进行标签分组</p>
+<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
+<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
+<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
+<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
+<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
+<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
+<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
+<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
+<p>未来，它一定会成为你离不开的伙伴</p>
+<p>尽情发挥你的才华吧！</p>
+<p>😘 Enjoy~</p>
+]]></content>
+    </entry>
+</feed>
