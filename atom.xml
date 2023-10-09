@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://https://whale-fall-nian.github.io/nian/</id>
     <title>Gridea</title>
-    <updated>2023-10-09T08:15:00.191Z</updated>
+    <updated>2023-10-09T10:44:12.284Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://https://whale-fall-nian.github.io/nian/"/>
     <link rel="self" href="https://https://whale-fall-nian.github.io/nian/atom.xml"/>
@@ -10,6 +10,24 @@
     <logo>https://https://whale-fall-nian.github.io/nian/images/avatar.png</logo>
     <icon>https://https://whale-fall-nian.github.io/nian/favicon.ico</icon>
     <rights>All rights reserved 2023, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[操作系统总结]]></title>
+        <id>https://https://whale-fall-nian.github.io/nian/post/cao-zuo-xi-tong-zong-jie/</id>
+        <link href="https://https://whale-fall-nian.github.io/nian/post/cao-zuo-xi-tong-zong-jie/">
+        </link>
+        <updated>2023-10-09T08:52:46.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="一操作系统概述">一.操作系统概述</h1>
+<p>1.在一个计算机系统中，通常将硬件和软件资源归纳分类成四类：处理器、存储器、I//O设备、信息（数据和程序），操作系统的主要功能也正是针对这四类资源进行有效的管理。</p>
+<p>2.批处理作业的控制方式为脱机控制的方式，每一批作业如何调度，都是系统通过作业体中的作业控制块完成执行的，所以批处理作业中必须含有作业控制信息。</p>
+<p>3.操作系统是系统软件的一种，是最重要最基本的系统软件。操作系统是管理电脑硬件与软件资源的程序，同时也是计算机系统的内核与基石。</p>
+<p>4.管理所有的资源只能是操作系统。</p>
+<p>5.中断只是系统的一种机制而不是资源。</p>
+<p>6.地址映射需要了解物理地址和逻辑地址的关系，时钟系统需要定时器定时，中断系统也需要时钟的支持。<code>进程调度知识一系列指令，由操作系统系统的软件提供，所以不需要硬件资源</code></p>
+<ol start="7">
+<li></li>
+</ol>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[MySQL必知必会总结]]></title>
         <id>https://https://whale-fall-nian.github.io/nian/post/mysql-bi-zhi-bi-hui-zong-jie/</id>
