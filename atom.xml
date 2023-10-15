@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://https://whale-fall-nian.github.io/nian/</id>
     <title>Gridea</title>
-    <updated>2023-10-09T10:44:12.284Z</updated>
+    <updated>2023-10-15T14:14:18.383Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://https://whale-fall-nian.github.io/nian/"/>
     <link rel="self" href="https://https://whale-fall-nian.github.io/nian/atom.xml"/>
@@ -23,7 +23,13 @@
 <p>4.管理所有的资源只能是操作系统。</p>
 <p>5.中断只是系统的一种机制而不是资源。</p>
 <p>6.地址映射需要了解物理地址和逻辑地址的关系，时钟系统需要定时器定时，中断系统也需要时钟的支持。<code>进程调度知识一系列指令，由操作系统系统的软件提供，所以不需要硬件资源</code></p>
-<ol start="7">
+<p>7.操作系统的主要任务是进行：处理机管理、存储管理、设备管理、文件管理，其核心部分为处理机管理。</p>
+<p>8.实时系统通常采用剥夺时调度</p>
+<p>9.进程的执行代码是在程序段中</p>
+<p>10.原语是原子操作，是不允许打断的。</p>
+<p>11.进程切换中，有两种不能直接转换的状态。一种是从就绪态转等待态，另一种是从等待态直接到运行态。</p>
+<p>12.银行家算法是一种死锁避免算法，用于计算动态资源的分配 避免系统进入死锁状态。</p>
+<ol start="13">
 <li></li>
 </ol>
 ]]></content>
